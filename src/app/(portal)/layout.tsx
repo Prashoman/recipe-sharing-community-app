@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Navbar from "./_components/Navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,10 +12,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-   <div>
-      <main>
-        {children}
-      </main>
+    <div className="w-full">
+      <Navbar />
+      <main>{children}</main>
     </div>
   );
 }

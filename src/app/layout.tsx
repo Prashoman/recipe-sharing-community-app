@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Bai_Jamjuree } from 'next/font/google';
 import "./globals.css";
 import Providers from "@/providers/providers";
+import { ToastContainer, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const baiJamjuree = Bai_Jamjuree({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+    // icon: process.env.NEXT_PUBLIC_IMAGE_URL + logoUrl,
 });
 
 export const metadata: Metadata = {
@@ -28,8 +25,21 @@ export default function RootLayout({
     <Providers>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={baiJamjuree.className}
         >
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+            transition={Zoom}
+          />
           {children}
         </body>
       </html>
